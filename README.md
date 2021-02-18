@@ -63,6 +63,22 @@ Stage One:
 
     I must create an html, css, and javascript file. The quiz should be dynamically updating the html via javascript. I will need a second html for the high scores. Need to add a timer function on start. Need to add a function that removes time if answer is wrong. Create an end to the game on timer 0. Input for initials with recorded score.
     
+Stage Two:
+
+*html*
+
+    For this project with maintaining the dynamic feel, the html is pretty bare bones and the javascript is doing all the heavy lifting. I'm going to try to keep pretty close to the example. 
+
+Stage Three:
+
+*Questions*
+
+    I'll need a bank of questions, choices, and correct answers to draw from to populate the quiz. Created an array of arrays in javascript. 
+
+Stage Four:
+
+*Variables and Functions*
+
 
 ---
 ## Contributing
