@@ -23,22 +23,27 @@ var questionPool = [
 ]
 
 
-var timerCount = 60;
+var timerCount = 20;
 var containerEl = document.querySelector("#container");
 var quizEl = document.querySelector("#answers");
 var questionsEl = document.querySelector("#questions");
 var startB = document.querySelector('#start');
+var beginEl = document.querySelector('#begin');
 var timeDisplay = document.querySelector('.timer-count');
 var timer;
 var counter = 0;
-
+var headOne = document.querySelector("#headOne");
+var highScoresDisplay = document.querySelector("#highScores");
 
 function setTime() {
+    beginEl.innerHTML = "";
+    headOne.innerHTML = "";
     timer = setInterval(function() {
         timerCount--;
         timeDisplay.textContent = timerCount;
-        if (timerCount === 0) {
-            clearInterval(timer);
+        if (timerCount <= 0) {
+            // clearInterval(timer);
+            endgame();
         }
     }, 1000);
     questions();
@@ -72,6 +77,7 @@ function buildButton(i) {
 
 
 function questions() {
+    
     quizEl.innerHTML = "";
     if (counter < questionPool.length) {
         questionPool[counter].choices.map((i) => (        
@@ -85,17 +91,48 @@ function questions() {
     }
 }
 
+//If you waited the full timer then started proceeded to miss all the questions you could get a -40 score, and at that point you deserve it. I could put in a set score to 0 if < 0 though.
 function endgame() {
     quizEl.innerHTML = ""
     clearInterval(timer);
-    if (timerCount > 0) {
-        questionsEl.textContent = "score: " + timerCount
-    } else {
-        questionsEl.textContent = "score: " + timerCount
+    if (timerCount < 0) {
+        timerCount = 0;
     }
+    questionsEl.textContent = "score: " + timerCount;
+    var initials = document.createElement("input");
+    initials.type = "text";
+    initials.id = ("initialForm");
+    quizEl.appendChild(initials);
+
+    var playAgain = document.createElement("button");
+    playAgain.textContent = "Play again";
+    playAgain.classList.add("againButton");
+    beginEl.appendChild(playAgain);
+    var submitScore = document.createElement("button");
+    submitScore.textContent = "Submit score";
+    submitScore.classList.add("submit");
+    beginEl.appendChild(submitScore);
+}
+
+function userName() {
+    var playerInitials = document.getElementById("initialForm").value;
+    var currentScores = localStorage.getItem("highscores");
+    var currentFromLocal = JSON.parse(currentScores);
+    localStorage.setItem("highscores", JSON.stringify(playerInitials + timerCount + currentFromLocal));
+    location.assign("assets/scores.html");
+    beginEl.innerHTML = "";
+    
 }
 
 
+beginEl.addEventListener("click", function(event) {
+    if(event.target.classList.contains("againButton")){
+        location.reload();
+    }
+    if(event.target.classList.contains("submit")) {
+        userName();
+    }
+});
 
 
 
