@@ -79,12 +79,29 @@ Stage Four:
 
 *Variables and Functions*
 
+    Timer went easy enough, ended up putting the clear interval into the end of the game instead of the timer. I think I built the buttons in a bit of a weird way, did it differently and easier(thanks for the inspiration on that Max) for the ending. Questions I had to play around a bit with the order of the if statement but working great. I really like the end of game function, I think it ended up pretty neat. Doing the user input took a bit of time to figure out, and I think it can be cleaned up further. 
+
+Stage Five:
+
+*High scores*
+
+    Needed to create a second HTML. Using the same javascript file ended up creating errors, cheated and just put divs associated to the buttons that were causing errors.
+
+![functioning](assets/images/functioning.jpg)
+
+
+Stage Six:
+
+*css*
+
+    Running short on time for making this product look nice. Will update CSS as I can. Function over style in my opinion. 
 
 ---
 ## Contributing
 
+Special thanks to Nicholas Marrone, we worked quite a few hours together on this project as we tossed ideas back and forth on how to complete the task. 
 
 ---
 ## Credits
 
-
+W3 Schools for the question ideas
