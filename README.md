@@ -12,8 +12,8 @@ Shawn Fox
 ---
 ## Project Links:
 
-- Deployed site: [GitHub Pages]()
-- GitHub: [SFoxGit]()
+- Deployed site: [GitHub Pages](https://sfoxgit.github.io/code_quiz/)
+- GitHub: [SFoxGit](https://github.com/SFoxGit/code_quiz)
 
 ---
 ## Table of Contents
