@@ -23,7 +23,7 @@ var questionPool = [
 ]
 
 
-var timerCount = 20;
+var timerCount = 60;
 var containerEl = document.querySelector("#container");
 var quizEl = document.querySelector("#answers");
 var questionsEl = document.querySelector("#questions");
@@ -127,23 +127,31 @@ function userName() {
     }
 
 
-    newpage();
     location.assign("assets/scores.html");
-    beginEl.innerHTML = "";
 }
 
-var highScoresDisplay = document.querySelector("#highScores");
+const highScoresDisplay = document.querySelector("#highScores");
 function newpage() {
-    var currentScores = JSON.parse(localStorage.getItem("highscores"));
-    highScoresDisplay.textContent = currentScores;
+    init();
 }
 
 
 
 
 function init() {
+    if (window.location.href.indexOf('scores') > -1) {
+        console.log('test');
+        var currentScores = JSON.parse(localStorage.getItem("highscores"));
+        const sortArr = currentScores.sort((a, b) => b.score - a.score)
+        sortArr.forEach(obj => {
+            highScoresDisplay.innerHTML += `<div class="col-6">${obj.name}</div>
+            <div class="col-6">${obj.score}</div>`;
+        })
+    }
 
 }
+
+init();
 
 beginEl.addEventListener("click", function (event) {
     if (event.target.classList.contains("againButton")) {
