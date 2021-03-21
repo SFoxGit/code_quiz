@@ -1,3 +1,8 @@
+a:link {
+    text-decoration: none;
+    background-color: teal;
+}
+
 /* body {
     font-size: large;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
