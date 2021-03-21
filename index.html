@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="assets/style.css" />
 </head>
@@ -21,20 +22,26 @@
         </div>
     </header>
     <!-- div for welcome + button -->
-    <section id="container">
-        <div id="quiz">
-            <div id="headOne">Test your coding knowledge!</div>
-            <div id="questions">Answer the following questions as FAST as possible! Each question you get wrong will
-                reduce your timer, so don't mess up. High scores are based on time remaining. Click start to begin!
+    <section id="container" class="container">
+        <div class="row">
+            <div id="quiz" class="col-12">
+                <div class="row">
+                    <div id="headOne" class="col-12">Test your coding knowledge!</div>
+                    <div id="questions" class="col-12">Answer the following questions as FAST as possible! Each question
+                        you get wrong
+                        will
+                        reduce your timer, so don't mess up. High scores are based on time remaining. Click start to
+                        begin!
+                    </div>
+                    <div id="answers" class="col-12"></div>
+                </div>
             </div>
-            <div id="answers"></div>
+            <div id="begin" class="col-12">
+                <button id="start">Start Quiz</button>
+            </div>
+            <div id="highScores"></div>
+
         </div>
-        <div id="begin">
-            <button id="start">Start Quiz</button>
-        </div>
-
-
-
     </section>
 
 

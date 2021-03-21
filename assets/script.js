@@ -33,12 +33,11 @@ var timeDisplay = document.querySelector('.timer-count');
 var timer;
 var counter = 0;
 var headOne = document.querySelector("#headOne");
-var highScoresDisplay = document.querySelector("#highScores");
 
 function setTime() {
     beginEl.innerHTML = "";
     headOne.innerHTML = "";
-    timer = setInterval(function() {
+    timer = setInterval(function () {
         timerCount--;
         timeDisplay.textContent = timerCount;
         if (timerCount <= 0) {
@@ -52,7 +51,7 @@ function setTime() {
 
 function buildButton(i) {
     const button = document.createElement("button");
-    button.innerText= i;
+    button.innerText = i;
     var result;
     if (questionPool[counter].answer === i) {
         result = true
@@ -60,7 +59,7 @@ function buildButton(i) {
         result = false
     }
     button.setAttribute("result", result)
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
         if (result === true) {
             questions();
         } else {
@@ -77,10 +76,10 @@ function buildButton(i) {
 
 
 function questions() {
-    
+
     quizEl.innerHTML = "";
     if (counter < questionPool.length) {
-        questionPool[counter].choices.map((i) => (        
+        questionPool[counter].choices.map((i) => (
             quizEl.append(buildButton(i))
         ))
         questionsEl.innerHTML = questionPool[counter].question;
@@ -116,20 +115,41 @@ function endgame() {
 
 function userName() {
     var playerInitials = document.getElementById("initialForm").value;
-    var currentScores = localStorage.getItem("highscores");
-    var currentFromLocal = JSON.parse(currentScores);
-    localStorage.setItem("highscores", JSON.stringify(playerInitials + timerCount + currentFromLocal));
+    var initialScores = { "name": playerInitials, "score": timerCount };
+    const totalScores = [];
+    const getScores = JSON.parse(localStorage.getItem("highscores"));
+    if (getScores) {
+        getScores.push(initialScores);
+        localStorage.setItem("highscores", JSON.stringify(getScores));
+    } else {
+        totalScores.push(initialScores);
+        localStorage.setItem("highscores", JSON.stringify(totalScores));
+    }
+
+
+    newpage();
     location.assign("assets/scores.html");
     beginEl.innerHTML = "";
-    
+}
+
+var highScoresDisplay = document.querySelector("#highScores");
+function newpage() {
+    var currentScores = JSON.parse(localStorage.getItem("highscores"));
+    highScoresDisplay.textContent = currentScores;
 }
 
 
-beginEl.addEventListener("click", function(event) {
-    if(event.target.classList.contains("againButton")){
+
+
+function init() {
+
+}
+
+beginEl.addEventListener("click", function (event) {
+    if (event.target.classList.contains("againButton")) {
         location.reload();
     }
-    if(event.target.classList.contains("submit")) {
+    if (event.target.classList.contains("submit")) {
         userName();
     }
 });
