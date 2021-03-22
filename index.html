@@ -13,13 +13,13 @@
 
 <body>
     <!-- nav with view highscores and timer -->
-    <div class="container-fluid border-bottom border-primary bg-dark">
+    <div class="container-fluid border-bottom border-secondary bg-dark">
         <div class="row">
-            <div class="col-6 d-flex align-items-center">
-                <a class="p-2 m-2 text-light" href="index.html">Home</a>
-                <a class="p-2 m-2 text-light" href="assets/scores.html">High Scores</a>
+            <div class="col-xs-12 col-lg-6 d-flex align-items-center">
+                <a class="p-2 m-2 text-light bg-secondary rounded" href="index.html">Home</a>
+                <a class="p-2 m-2 text-light bg-secondary rounded" href="assets/scores.html">High Scores</a>
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-end text-light">
+            <div class="col-xs-12 col-lg-6 d-flex align-items-center justify-content-end text-light">
                 <div class="timer-count m-2">60</div>
                 <div class="seconds">Seconds remaining</div>
             </div>
@@ -29,15 +29,17 @@
     <section id="container" class="container mt-3">
         <div class="row">
             <div id="quiz" class="col-12">
-                <div class="row">
+                <div id="mainBox" class="row p-5 bg-dark text-light">
                     <div id="headOne" class="col-12 text-center">Test your coding knowledge!</div>
-                    <div id="questions" class="col-12 text-center">Answer the following questions as FAST as possible! Each question you get wrong will reduce your timer, so don't mess up. High scores are based on time remaining. Click start to begin!
+                    <div id="questions" class="col-12 mt-2 text-center">Answer the following questions as FAST as
+                        possible! Each question you get wrong will reduce your timer, so don't mess up. High scores are
+                        based on time remaining. Click start to begin!
                     </div>
-                    <div id="answers" class="col-12"></div>
+                    <div id="answers" class="col-12 d-flex justify-content-center mt-3"></div>
+                    <div id="begin" class="col-12 d-flex justify-content-center mt-3">
+                        <button id="start" class="btn btn-secondary border-info text-light">Start Quiz</button>
+                    </div>
                 </div>
-            </div>
-            <div id="begin" class="col-12 d-flex justify-content-center mt-3">
-                <button id="start">Start Quiz</button>
             </div>
             <div id="highScores"></div>
 

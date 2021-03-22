@@ -1,6 +1,23 @@
 a:link {
     text-decoration: none;
-    background-color: teal;
+}
+
+body {
+    background-color: rgb(1, 1, 68);
+}
+
+.btn {
+    box-shadow: 1px 1px grey;
+
+}
+
+#mainBox {
+    box-shadow: 1px 1px 1px grey;
+
+}
+
+#highScores {
+    box-shadow: 1px 1px 1px grey;
 }
 
 /* body {

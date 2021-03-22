@@ -59,6 +59,7 @@ function buildButton(i) {
         result = false
     }
     button.setAttribute("result", result)
+    button.setAttribute("class", "m-2 btn btn-secondary border-info text-light")
     button.addEventListener("click", function () {
         if (result === true) {
             questions();
@@ -101,15 +102,17 @@ function endgame() {
     var initials = document.createElement("input");
     initials.type = "text";
     initials.id = ("initialForm");
+    initials.setAttribute("placeholder", "Your Initials")
     quizEl.appendChild(initials);
 
     var playAgain = document.createElement("button");
     playAgain.textContent = "Play again";
-    playAgain.classList.add("againButton");
+    playAgain.setAttribute("class", "againButton m-2 btn btn-secondary border-info text-light");
     beginEl.appendChild(playAgain);
+
     var submitScore = document.createElement("button");
     submitScore.textContent = "Submit score";
-    submitScore.classList.add("submit");
+    submitScore.setAttribute("class", "submit m-2 btn btn-secondary border-info text-light");
     beginEl.appendChild(submitScore);
 }
 
@@ -143,9 +146,12 @@ function init() {
         console.log('test');
         var currentScores = JSON.parse(localStorage.getItem("highscores"));
         const sortArr = currentScores.sort((a, b) => b.score - a.score)
+        highScoresDisplay.innerHTML += `<div class="col-6 text-center">Name</div>
+            <div class="col-6 text-center">Score</div>
+            <div class="w-100 m-2 border-bottom"></div>`
         sortArr.forEach(obj => {
-            highScoresDisplay.innerHTML += `<div class="col-6">${obj.name}</div>
-            <div class="col-6">${obj.score}</div>`;
+            highScoresDisplay.innerHTML += `<div class="col-6 text-center">${obj.name}</div>
+            <div class="col-6 text-center">${obj.score}</div>`;
         })
     }
 
